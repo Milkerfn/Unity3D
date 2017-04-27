@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="firebase_database_url" translatable="false">https://palavrart-992d9.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">229961973941</string>
+  <string name="google_storage_bucket" translatable="false">palavrart-992d9.appspot.com</string>
+  <string name="google_api_key" translatable="false">AIzaSyBW0C_fh0Nq5i9wD06-4gyIaI7CMc9fDSU</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBW0C_fh0Nq5i9wD06-4gyIaI7CMc9fDSU</string>
+  <string name="google_app_id" translatable="false">1:229961973941:android:8e08f07c2d2134fc</string>
+  <string name="default_web_client_id" translatable="false">229961973941-rvsreadp7d3p058ise0j7pjg23d67k13.apps.googleusercontent.com</string>
+</resources>
