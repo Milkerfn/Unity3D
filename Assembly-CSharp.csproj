@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F8F51008-2980-7E3A-924C-A1AEBB254291}</ProjectGuid>
+    <ProjectGuid>{E628E07C-C236-ECA7-A3C6-712B24AC8129}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -141,6 +141,7 @@
      <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
      <Compile Include="Assets\Scripts\AcoesButton.cs" />
      <Compile Include="Assets\Scripts\BarraProgresa.cs" />
+     <Compile Include="Assets\Scripts\BarraProgresoButtonGeral.cs" />
      <Compile Include="Assets\Scripts\BarraProgresoMenuEscrita.cs" />
      <Compile Include="Assets\Scripts\BarraProgresoMenuLeitura.cs" />
      <Compile Include="Assets\Scripts\ModoEscritaSala_Button.cs" />
@@ -177,9 +178,6 @@
      <None Include="Assets\Plugins\Android\firebase-common-10.2.0\AndroidManifest.xml" />
      <None Include="Assets\GoogleVR\Shaders\GvrUnityCompatibility.cginc" />
      <None Include="Assets\GoogleVR\Demos\Shaders\VideoDemo\VideoDemoStereoShader.shader" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -195,35 +193,32 @@
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.App">
- <HintPath>C:/Users/Milker/Documents/Projeto Palavrart v1/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+ <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Auth">
- <HintPath>C:/Users/Milker/Documents/Projeto Palavrart v1/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+ <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Database">
- <HintPath>C:/Users/Milker/Documents/Projeto Palavrart v1/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+ <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
  </Reference>
  <Reference Include="Google.MiniJson">
- <HintPath>C:/Users/Milker/Documents/Projeto Palavrart v1/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+ <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
  </Reference>
  <Reference Include="Google.Sharpen">
- <HintPath>C:/Users/Milker/Documents/Projeto Palavrart v1/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+ <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Compat">
- <HintPath>C:/Users/Milker/Documents/Projeto Palavrart v1/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
+ <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Tasks">
- <HintPath>C:/Users/Milker/Documents/Projeto Palavrart v1/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
+ <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
  </Reference>
  <Reference Include="Google.ProtocolBuffers">
- <HintPath>C:/Users/Milker/Documents/Projeto Palavrart v1/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+ <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
