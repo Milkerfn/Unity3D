@@ -1,5 +1,6 @@
 ﻿
 using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,12 +16,22 @@ public class ModoEscritaSala_Button : MonoBehaviour
 	public Transform BarraEspera;
 	public Transform TextProgreso;
 	public Transform TextCargando;
+
 	[SerializeField]
 	private float currentAmount;
 	[SerializeField]
 	private float speed=0;
-
-	public Text nomeObjeto, objeto;
+	   
+	public Text nomeObjeto, 
+				objeto,
+				primerNomeExercicios,
+				segundoNomeExercicios,
+				primerObjetoExercicios,
+				segundoObjetoExercicios,
+				pontoCorreto, 
+				pontoErrado;
+	public static string primertext, segundoText;
+	public static int ptCorreto, ptErrado;
 	private DatabaseReference mDatabase;
 
 //	public float speed = 100f;
@@ -28,31 +39,49 @@ public class ModoEscritaSala_Button : MonoBehaviour
 	public float tiempo = 1;
 	//public string nivel;
 	String[] ArrayString;
-	   
+
+	public static int TipoEtapa = 1;
+		   
 	public static int numeroPalavra = 0;
 	private int cantidadeObjetos = 0;
 
 	public bool SeguinteCarga = false;
 	public bool RepetirCarga = false;
+	public bool PrimeiraSelecaoCarga = false;
+	public bool SegundoSelecaoCarga = false;
 
 	void Start ()
 	{
 		objeto.text = "TREINAMENTO";  
 
 		nomeObjeto.text = " ";
+		primerNomeExercicios.text = " ";
+		segundoNomeExercicios.text = " ";
+		//primerObjetoExercicios.text = " ";
+		//segundoObjetoExercicios.text = " ";
+
 		StartCoroutine (Temp ());
 
-		//
 	}
 
 	void Update () {
 
-		//isShowing = !isShowing;    
+
 		if (numeroPalavra < 1) {
 			GameObject.Find ("BarraCargaRepetir").transform.localScale = new Vector3 (0, 0, 0);
 
+			if (TipoEtapa == 1 ) {
+				GameObject.Find ("PrimerObjetoSelecao").transform.localScale = new Vector3 (0, 0, 0);
+				GameObject.Find ("SegundoObjetoSelecao").transform.localScale = new Vector3 (0, 0, 0);
+			} 
+
 		} else {
 			GameObject.Find ("BarraCargaRepetir").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
+
+			if(TipoEtapa == 2 ) {
+				GameObject.Find ("PrimerObjetoSelecao").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
+				GameObject.Find ("SegundoObjetoSelecao").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
+			}
 
 			if (RepetirCarga)
 			{
@@ -70,6 +99,7 @@ public class ModoEscritaSala_Button : MonoBehaviour
 			}
 		}
 
+
 		if (SeguinteCarga)
 		{
 			
@@ -86,6 +116,37 @@ public class ModoEscritaSala_Button : MonoBehaviour
 			BarraEspera.GetComponent<Image>().fillAmount = currentAmount / 100;
 		}
 
+		if (PrimeiraSelecaoCarga)
+		{
+			if (currentAmount < 100)
+			{
+				currentAmount += speed * Time.deltaTime;
+			}
+			else
+			{
+				validarObjeto(primertext);
+				Debug.Log(primertext);
+				currentAmount = .0f;
+				PrimeiraSelecaoCarga = false;
+			}
+			BarraEspera.GetComponent<Image>().fillAmount = currentAmount / 100;
+		}
+
+		if (SegundoSelecaoCarga)
+		{
+			if (currentAmount < 100)
+			{
+				currentAmount += speed * Time.deltaTime;
+			}
+			else
+			{
+				validarObjeto(segundoText);
+				Debug.Log(segundoText);
+				currentAmount = .0f;
+				SegundoSelecaoCarga = false;
+			}
+			BarraEspera.GetComponent<Image>().fillAmount = currentAmount / 100;
+		}
 
 
 	}
@@ -131,37 +192,92 @@ public class ModoEscritaSala_Button : MonoBehaviour
 	void Seguinte ()
 	{
 		int cant = cantidadeObjetos;
-		RepetirCarga = false;
-		if (numeroPalavra < cant) {     
-			string ObjetoSala = ArrayString [numeroPalavra].ToString ();
-			string[] ObjetoSalaSplit = ObjetoSala.Split (',');
 
-			nomeObjeto.text = ObjetoSalaSplit [0];
-			objeto.text = ObjetoSalaSplit [1];
-			numeroPalavra++;
+		if (numeroPalavra < cant) { 
+
+			if (TipoEtapa == 1) {
+				string ObjetoSala = ArrayString [numeroPalavra].ToString ();
+				string[] ObjetoSalaSplit = ObjetoSala.Split (',');
+
+				nomeObjeto.text = ObjetoSalaSplit [0];
+				objeto.text = ObjetoSalaSplit [1];
+				numeroPalavra++;
+			} else if (TipoEtapa == 2) {
+				objeto.text = " ";
+				int R = 0;
+
+				while (numeroPalavra == R) {
+					//genera random
+					Debug.Log ("Random");
+					R = UnityEngine.Random.Range (0, cant);
+					Debug.Log (R);
+
+				}
+
+				if (numeroPalavra != R) {
+					string primerNomeExe = ArrayString [numeroPalavra].ToString ();
+					string segundoNomeExe = ArrayString [R].ToString ();
+
+					string[] ObjetoPrimerNomeSplit = primerNomeExe.Split (',');
+					string[] ObjetoSegundoNomeSplit = segundoNomeExe.Split (',');
+
+					primerNomeExercicios.text = ObjetoPrimerNomeSplit [0];
+					primerObjetoExercicios.text = ObjetoPrimerNomeSplit [1];
+
+					segundoNomeExercicios.text = ObjetoSegundoNomeSplit [0];
+					segundoObjetoExercicios.text = ObjetoSegundoNomeSplit [1];
+
+					primertext = numeroPalavra.ToString();
+					segundoText = R.ToString();
+
+					numeroPalavra++;
+				}
+			} else if (TipoEtapa == 3) {
+				Debug.Log ("Novo Cenario");
+			}
 
 		} else {
-			objeto.text = "EXERCÍCIOS";
-			nomeObjeto.text = " ";    
-			numeroPalavra = 0;
-		}
+			
+			if (TipoEtapa == 1) {
+				objeto.text = "EXERCÍCIOS";
+				nomeObjeto.text = " ";    
+				numeroPalavra = 0;
+				TipoEtapa = 2;
+			} else {
+				TipoEtapa = 3;
+				Debug.Log ("Novo Cenario");
+			}
 
+		}
 	}
 
 	void Repetir ()
 	{
-		
 		string ObjetoSala = ArrayString [numeroPalavra-1].ToString ();
-			string[] ObjetoSalaSplit = ObjetoSala.Split (',');
+		string[] ObjetoSalaSplit = ObjetoSala.Split (',');
 
 			nomeObjeto.text = ObjetoSalaSplit [0];
 			objeto.text = ObjetoSalaSplit [1];
-
-			
-
 	}
 
-	#region Metodos de carga Seguinte / Repetir
+	void validarObjeto(string valor){
+		int codigoValor = int.Parse(valor); 
+		int codigoPalavra = numeroPalavra - 1;
+		if (codigoPalavra == codigoValor) {
+			Debug.Log ("Correcto!! - Enviar puntos");
+			ptCorreto++;
+			//Seguinte ();
+		} else {
+			Debug.Log ("Error!! - Enviar puntos");
+			ptErrado++;
+			//Seguinte ();
+		}
+
+		pontoCorreto.text = "Correto : " + ptCorreto.ToString ();
+		pontoErrado.text = "Errado : " + ptErrado.ToString ();
+	}
+
+	#region Metodos de carga Seguinte / Repetir / PrimeiraSelecao / SegundaSelecao
 
 	public void Ingreso_Seguinte()
 	{
@@ -185,5 +301,26 @@ public class ModoEscritaSala_Button : MonoBehaviour
 		RepetirCarga = false;
 	}
 
+	public void Ingreso_PrimeiraObjetoSelecao()
+	{
+		PrimeiraSelecaoCarga = true;
+	}
+	  
+	public void Saida_PrimeiraObjetoSelecao()
+	{
+		currentAmount = .0f;
+		PrimeiraSelecaoCarga = false;
+	}
+
+	public void Ingreso_SegundoObjetoSelecao()
+	{
+		SegundoSelecaoCarga = true;
+	}
+
+	public void Saida_SegundoObjetoSelecao()
+	{
+		currentAmount = .0f;
+		SegundoSelecaoCarga = false;
+	}
 	#endregion
 }

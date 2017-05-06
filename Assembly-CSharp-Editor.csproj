@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CED6DC69-132D-DF02-D0FF-B1D34E329642}</ProjectGuid>
+    <ProjectGuid>{CCA76E42-E9D5-4CBF-3222-F488C499DCF3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -143,40 +143,40 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Editor">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Editor/Firebase.Editor.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Editor/Firebase.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.App">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Auth">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Database">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
  </Reference>
  <Reference Include="Google.MiniJson">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
  </Reference>
  <Reference Include="Google.Sharpen">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Compat">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Tasks">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
  </Reference>
  <Reference Include="Google.IOSResolver">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll</HintPath>
  </Reference>
  <Reference Include="Google.JarResolver">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/PlayServicesResolver/Editor/Google.JarResolver.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/PlayServicesResolver/Editor/Google.JarResolver.dll</HintPath>
  </Reference>
  <Reference Include="Google.VersionHandler">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
  </Reference>
  <Reference Include="Google.ProtocolBuffers">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -190,7 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{E628E07C-C236-ECA7-A3C6-712B24AC8129}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{7214E491-EE9D-B906-A42D-2F3EA3DCD8FE}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

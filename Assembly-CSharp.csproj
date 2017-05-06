@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E628E07C-C236-ECA7-A3C6-712B24AC8129}</ProjectGuid>
+    <ProjectGuid>{7214E491-EE9D-B906-A42D-2F3EA3DCD8FE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -197,28 +197,28 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.App">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Auth">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Database">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
  </Reference>
  <Reference Include="Google.MiniJson">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
  </Reference>
  <Reference Include="Google.Sharpen">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Compat">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Tasks">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
  </Reference>
  <Reference Include="Google.ProtocolBuffers">
- <HintPath>C:/Users/Carriers/Documents/Unity3D-master/Unity3D-master/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+ <HintPath>F:/Unity3D/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Cenarios/ModoEscritaSala.unity
+- path: Assets/Cenarios/MenuModo.unity
   isLoaded: 1
   isActive: 1
