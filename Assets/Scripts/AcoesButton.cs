@@ -12,7 +12,7 @@ using Firebase.Unity.Editor;
 public class AcoesButton : MonoBehaviour  {
 		
 	public Text nomeObjeto, objeto;  
-	ModoEscritaSala_Button mEscritaButton;  
+	ModoLeituraTreinamento_Exercicios mEscritaButton;  
 
 	//public void Seguinte(){   
 //		mEscritaButton = new ModoEscritaSala_Button();

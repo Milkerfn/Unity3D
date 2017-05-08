@@ -17,6 +17,7 @@ public class BarraProgresoMenuEscrita : MonoBehaviour {
     public bool Cozinha = false;
     public bool Cuarto = false;
     public bool Aula = false;
+	public bool Voltar = false;
 
 	// Use this for initialization
 	void Start () {
@@ -33,8 +34,8 @@ public class BarraProgresoMenuEscrita : MonoBehaviour {
                 currentAmount += speed * Time.deltaTime;
             }
             else
-            {
-				SceneManager.LoadScene ("ModoEscritaSala");
+            {  
+				SceneManager.LoadScene ("ModoLeituraTreinamento_Exercicios");
                 //Application.LoadLevel("ModoEscritaSala");
             }
             BarraEspera.GetComponent<Image>().fillAmount = currentAmount / 100;
@@ -85,6 +86,21 @@ public class BarraProgresoMenuEscrita : MonoBehaviour {
             BarraEspera.GetComponent<Image>().fillAmount = currentAmount / 100;
 
         }
+
+		if (Voltar)
+		{
+			if (currentAmount < 100)
+			{
+				currentAmount += speed * Time.deltaTime;
+			}
+			else
+			{
+				SceneManager.LoadScene ("MenuModo");
+				// Application.LoadLevel("ModoEscritaAula");
+			}
+			BarraEspera.GetComponent<Image>().fillAmount = currentAmount / 100;
+
+		}
 	}
 
     public void Ingreso_Sala()
@@ -130,4 +146,15 @@ public class BarraProgresoMenuEscrita : MonoBehaviour {
         currentAmount = .0f;
         Aula = false;
     }
+
+	public void Ingreso_Voltar()
+	{
+		Voltar = true;
+	}
+
+	public void Saida_Voltar()
+	{
+		currentAmount = .0f;
+		Voltar = false;
+	}
 }
