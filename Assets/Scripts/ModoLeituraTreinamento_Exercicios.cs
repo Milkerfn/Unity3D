@@ -1,6 +1,5 @@
 ﻿
 using System;
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +15,9 @@ public class ModoLeituraTreinamento_Exercicios : MonoBehaviour
 	public Transform BarraEspera;
 	public Transform TextProgreso;
 	public Transform TextCargando;
+	public AudioClip sonido;
+
+	AudioSource fuenteaudio;
 
 	[SerializeField]
 	private float currentAmount;
@@ -30,8 +32,9 @@ public class ModoLeituraTreinamento_Exercicios : MonoBehaviour
 			//	segundoObjetoExercicios,
 				pontoCorreto, 
 				pontoErrado;
-	public Image imagenA;  
-	public Image imagenB;  
+	public Image exeImagemA;  
+	public Image exeImagemB;  
+	public Image treImagemA;  
 
 	public static string primertext, segundoText;
 	public static int ptCorreto, ptErrado;
@@ -53,11 +56,13 @@ public class ModoLeituraTreinamento_Exercicios : MonoBehaviour
 	public bool PrimeiraSelecaoCarga = false;
 	public bool SegundoSelecaoCarga = false;
 
-	public string url = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";
+	//public string url = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";
 
 	void Start ()
 	{
 		objeto.text = "TREINAMENTO";  
+
+		fuenteaudio = GetComponent<AudioSource> ();
 
 		nomeObjeto.text = " ";
 		primerNomeExercicios.text = " ";
@@ -69,9 +74,11 @@ public class ModoLeituraTreinamento_Exercicios : MonoBehaviour
 
 		StartCoroutine (Temp ());
 
-		imagenA = GameObject.Find ("ImageA").GetComponent<Image> ();
-		imagenB = GameObject.Find ("ImageB").GetComponent<Image> ();
+		exeImagemA = GameObject.Find ("ExeImagemA").GetComponent<Image> ();
+		exeImagemB = GameObject.Find ("ExeImagemB").GetComponent<Image> ();
+		treImagemA = GameObject.Find ("TreImagemA").GetComponent<Image> ();
 
+		//sonido = GameObject.Find ("Musica").GetComponent<AudioClip>();
 	}
 
 
@@ -79,27 +86,37 @@ public class ModoLeituraTreinamento_Exercicios : MonoBehaviour
 
 	void Update () {
 
+		if (Input.GetKeyDown (KeyCode.A)) {
+			fuenteaudio.clip = sonido;
+			fuenteaudio.Play ();
+		}
 
 		if (numeroPalavra < 1) {
 			GameObject.Find ("BarraCargaRepetir").transform.localScale = new Vector3 (0, 0, 0);
+			GameObject.Find ("TreImagemA").transform.localScale = new Vector3 (0, 0, 0);
 
 			if (TipoEtapa == 1 ) {
 				GameObject.Find ("PrimerObjetoSelecao").transform.localScale = new Vector3 (0, 0, 0);
 				GameObject.Find ("SegundoObjetoSelecao").transform.localScale = new Vector3 (0, 0, 0);
 
-				GameObject.Find ("ImageA").transform.localScale = new Vector3 (0, 0, 0);
-				GameObject.Find ("ImageB").transform.localScale = new Vector3 (0, 0, 0);
+				GameObject.Find ("ExeImagemA").transform.localScale = new Vector3 (0, 0, 0);
+				GameObject.Find ("ExeImagemB").transform.localScale = new Vector3 (0, 0, 0);
+				GameObject.Find ("TreImagemA").transform.localScale = new Vector3 (0, 0, 0);
+
 			} 
 
 		} else {
 			GameObject.Find ("BarraCargaRepetir").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
+			GameObject.Find ("TreImagemA").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
 
 			if(TipoEtapa == 2 ) {
+				
 				GameObject.Find ("PrimerObjetoSelecao").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
 				GameObject.Find ("SegundoObjetoSelecao").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
 
-				GameObject.Find ("ImageA").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
-				GameObject.Find ("ImageB").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
+				GameObject.Find ("ExeImagemA").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
+				GameObject.Find ("ExeImagemB").transform.localScale = new Vector3 (0.6f, 0.5f, 0f);
+				GameObject.Find ("TreImagemA").transform.localScale = new Vector3 (0, 0, 0);
 			}
 
 			if (RepetirCarga)
@@ -199,13 +216,21 @@ public class ModoLeituraTreinamento_Exercicios : MonoBehaviour
 
 					string imagen = (string)data.Child ("imagem").GetValue (true); 
 					string nome = (string)data.Child ("nome").GetValue (true); 
+					string audio = (string)data.Child ("audio").GetValue (true); 
 
-					ArrayString [i] = (nome.ToString () + " , " + imagen.ToString ());
+					ArrayString [i] = (nome.ToString () + " , " + imagen.ToString () + " , " + audio.ToString());
 					i++;
 				}
 					  
 			}     
 		});   
+	}
+
+	void ObterAudio(string nome){
+		fuenteaudio = (AudioSource)gameObject.AddComponent <AudioSource>();
+		sonido = (AudioClip)Resources.Load ("Audio/" + nome.ToString());
+		fuenteaudio.clip = sonido;
+		fuenteaudio.Play ();
 	}
 
 	void Seguinte ()
@@ -219,7 +244,16 @@ public class ModoLeituraTreinamento_Exercicios : MonoBehaviour
 				string[] ObjetoSalaSplit = ObjetoSala.Split (',');
 
 				nomeObjeto.text = ObjetoSalaSplit [0];
-				objeto.text = ObjetoSalaSplit [1];
+				objeto.text = "";//ObjetoSalaSplit [1];
+
+				string ObjetoC=ObjetoSalaSplit [1].Replace(" ","");
+				string ObjetoAudTre = ObjetoSalaSplit [2].Replace(" ","");
+
+
+				treImagemA.sprite = Resources.Load<Sprite> ("ObjModoLeitura/" + ObjetoC.ToString());
+				ObterAudio (ObjetoAudTre);
+			
+
 				numeroPalavra++;
 			} else if (TipoEtapa == 2) {
 				objeto.text = " ";
@@ -248,9 +282,12 @@ public class ModoLeituraTreinamento_Exercicios : MonoBehaviour
 
 					string ObjetoA=ObjetoPrimerNomeSplit [1].Replace(" ","");
 					string ObjetoB=ObjetoSegundoNomeSplit [1].Replace(" ","");
+					string ObjetoAudTre = ObjetoPrimerNomeSplit [2].Replace(" ","");
+					ObterAudio (ObjetoAudTre);
 
-					imagenA.sprite = Resources.Load<Sprite> ("ObjModoLeitura/" + ObjetoA .ToString());
-					imagenB.sprite = Resources.Load<Sprite> ("ObjModoLeitura/" + ObjetoB.ToString());
+					exeImagemA.sprite = Resources.Load<Sprite> ("ObjModoLeitura/" + ObjetoA .ToString());
+					exeImagemB.sprite = Resources.Load<Sprite> ("ObjModoLeitura/" + ObjetoB.ToString());
+
 
 					primertext = numeroPalavra.ToString();
 					segundoText = R.ToString();
@@ -282,9 +319,12 @@ public class ModoLeituraTreinamento_Exercicios : MonoBehaviour
 	{
 		string ObjetoSala = ArrayString [numeroPalavra-1].ToString ();
 		string[] ObjetoSalaSplit = ObjetoSala.Split (',');
+		string ObjetoAudTre = ObjetoSalaSplit [2].Replace(" ","");
+			
+			ObterAudio (ObjetoAudTre);
+			//nomeObjeto.text = ObjetoSalaSplit [0];
+			//objeto.text = ObjetoSalaSplit [1];
 
-			nomeObjeto.text = ObjetoSalaSplit [0];
-			objeto.text = ObjetoSalaSplit [1];
 	}
 
 	void validarObjeto(string valor){
